@@ -68,6 +68,10 @@
             this.plusFiveHundred = new System.Windows.Forms.Button();
             this.minusOneHundred = new System.Windows.Forms.Button();
             this.plusOneHundred = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.minSumTextBox = new System.Windows.Forms.TextBox();
+            this.maxSumTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +97,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.Location = new System.Drawing.Point(191, 125);
+            this.label1.Location = new System.Drawing.Point(191, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(439, 26);
             this.label1.TabIndex = 2;
@@ -466,11 +470,57 @@
             this.plusOneHundred.UseVisualStyleBackColor = true;
             this.plusOneHundred.Click += new System.EventHandler(this.plusOneHundred_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label9.Location = new System.Drawing.Point(191, 140);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 26);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "Не менее";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label10.Location = new System.Drawing.Point(397, 140);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(122, 26);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "и не более";
+            // 
+            // minSumTextBox
+            // 
+            this.minSumTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.minSumTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.minSumTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.minSumTextBox.Location = new System.Drawing.Point(307, 140);
+            this.minSumTextBox.Multiline = true;
+            this.minSumTextBox.Name = "minSumTextBox";
+            this.minSumTextBox.Size = new System.Drawing.Size(84, 30);
+            this.minSumTextBox.TabIndex = 42;
+            // 
+            // maxSumTextBox
+            // 
+            this.maxSumTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maxSumTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.maxSumTextBox.Location = new System.Drawing.Point(525, 140);
+            this.maxSumTextBox.Multiline = true;
+            this.maxSumTextBox.Name = "maxSumTextBox";
+            this.maxSumTextBox.ReadOnly = true;
+            this.maxSumTextBox.Size = new System.Drawing.Size(95, 30);
+            this.maxSumTextBox.TabIndex = 43;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 657);
+            this.Controls.Add(this.maxSumTextBox);
+            this.Controls.Add(this.minSumTextBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.minusOneHundred);
             this.Controls.Add(this.plusOneHundred);
             this.Controls.Add(this.minusFiveHundred);
@@ -563,6 +613,10 @@
         private System.Windows.Forms.Button plusFiveHundred;
         private System.Windows.Forms.Button minusOneHundred;
         private System.Windows.Forms.Button plusOneHundred;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox minSumTextBox;
+        private System.Windows.Forms.TextBox maxSumTextBox;
     }
 }
 

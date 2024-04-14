@@ -13,6 +13,7 @@ namespace ooap_lab3_withpattern_chain
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -20,11 +21,21 @@ namespace ooap_lab3_withpattern_chain
             textBox2.Text = availableNotes[1000].ToString();
             textBox3.Text = availableNotes[500].ToString();
             textBox4.Text = availableNotes[100].ToString();
+            maxSumTextBox.Text = CountTheMaxSum().ToString();
+        }
+        int CountTheMaxSum()
+        {
+            int sum = 0;
+            foreach (var item in availableNotes)
+            {
+                sum += item.Key * item.Value;
+            }
+            return sum;
         }
 
         private Dictionary<int, int> availableNotes = new Dictionary<int, int>
         {
-            {100, 1}, {500, 3}, {1000, 6}, {5000, 2}
+            {100, 5}, {500, 1}, {1000, 1}, {5000, 2}
         };
 
         private void inputNumberBox_TextChanged(object sender, EventArgs e)
@@ -330,6 +341,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[5000]++;
                 textBox1.Text = availableNotes[5000].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -339,6 +351,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[5000]--;
                 textBox1.Text = availableNotes[5000].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -348,6 +361,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[1000]++;
                 textBox2.Text = availableNotes[1000].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -357,6 +371,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[1000]--;
                 textBox2.Text = availableNotes[1000].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -366,6 +381,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[500]++;
                 textBox3.Text = availableNotes[500].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -375,6 +391,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[500]--;
                 textBox3.Text = availableNotes[500].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -384,6 +401,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[100]++;
                 textBox4.Text = availableNotes[100].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
 
@@ -393,6 +411,7 @@ namespace ooap_lab3_withpattern_chain
             {
                 availableNotes[100]--;
                 textBox4.Text = availableNotes[100].ToString();
+                maxSumTextBox.Text = CountTheMaxSum().ToString();
             }
         }
     }
