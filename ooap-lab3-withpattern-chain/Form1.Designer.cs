@@ -51,6 +51,23 @@
             this.SumErrorLabel = new System.Windows.Forms.Label();
             this.ClearButton = new System.Windows.Forms.Button();
             this.ErrorZeroLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.plusFiveThousand = new System.Windows.Forms.Button();
+            this.minusFiveThousand = new System.Windows.Forms.Button();
+            this.minusOneThousand = new System.Windows.Forms.Button();
+            this.plusOneThousand = new System.Windows.Forms.Button();
+            this.minusFiveHundred = new System.Windows.Forms.Button();
+            this.plusFiveHundred = new System.Windows.Forms.Button();
+            this.minusOneHundred = new System.Windows.Forms.Button();
+            this.plusOneHundred = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -291,11 +308,186 @@
             this.ErrorZeroLabel.Text = "Значение не может начинаться с нуля";
             this.ErrorZeroLabel.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(789, 88);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(33, 20);
+            this.textBox1.TabIndex = 23;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(789, 114);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(33, 20);
+            this.textBox2.TabIndex = 24;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(789, 140);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(33, 20);
+            this.textBox3.TabIndex = 25;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(789, 166);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(33, 20);
+            this.textBox4.TabIndex = 26;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label4.Location = new System.Drawing.Point(784, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 26);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Деньги в банке:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(828, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "5000";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(828, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "1000";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(828, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "500";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(828, 169);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "100";
+            // 
+            // plusFiveThousand
+            // 
+            this.plusFiveThousand.Location = new System.Drawing.Point(865, 88);
+            this.plusFiveThousand.Name = "plusFiveThousand";
+            this.plusFiveThousand.Size = new System.Drawing.Size(24, 20);
+            this.plusFiveThousand.TabIndex = 32;
+            this.plusFiveThousand.Text = "+";
+            this.plusFiveThousand.UseVisualStyleBackColor = true;
+            this.plusFiveThousand.Click += new System.EventHandler(this.plusFiveThousand_Click);
+            // 
+            // minusFiveThousand
+            // 
+            this.minusFiveThousand.Location = new System.Drawing.Point(895, 88);
+            this.minusFiveThousand.Name = "minusFiveThousand";
+            this.minusFiveThousand.Size = new System.Drawing.Size(24, 20);
+            this.minusFiveThousand.TabIndex = 33;
+            this.minusFiveThousand.Text = "-";
+            this.minusFiveThousand.UseVisualStyleBackColor = true;
+            this.minusFiveThousand.Click += new System.EventHandler(this.minusFiveThousand_Click);
+            // 
+            // minusOneThousand
+            // 
+            this.minusOneThousand.Location = new System.Drawing.Point(895, 114);
+            this.minusOneThousand.Name = "minusOneThousand";
+            this.minusOneThousand.Size = new System.Drawing.Size(24, 20);
+            this.minusOneThousand.TabIndex = 35;
+            this.minusOneThousand.Text = "-";
+            this.minusOneThousand.UseVisualStyleBackColor = true;
+            this.minusOneThousand.Click += new System.EventHandler(this.minusOneThousand_Click);
+            // 
+            // plusOneThousand
+            // 
+            this.plusOneThousand.Location = new System.Drawing.Point(865, 114);
+            this.plusOneThousand.Name = "plusOneThousand";
+            this.plusOneThousand.Size = new System.Drawing.Size(24, 20);
+            this.plusOneThousand.TabIndex = 34;
+            this.plusOneThousand.Text = "+";
+            this.plusOneThousand.UseVisualStyleBackColor = true;
+            this.plusOneThousand.Click += new System.EventHandler(this.plusOneThousand_Click);
+            // 
+            // minusFiveHundred
+            // 
+            this.minusFiveHundred.Location = new System.Drawing.Point(895, 140);
+            this.minusFiveHundred.Name = "minusFiveHundred";
+            this.minusFiveHundred.Size = new System.Drawing.Size(24, 20);
+            this.minusFiveHundred.TabIndex = 37;
+            this.minusFiveHundred.Text = "-";
+            this.minusFiveHundred.UseVisualStyleBackColor = true;
+            this.minusFiveHundred.Click += new System.EventHandler(this.minusFiveHundred_Click);
+            // 
+            // plusFiveHundred
+            // 
+            this.plusFiveHundred.Location = new System.Drawing.Point(865, 140);
+            this.plusFiveHundred.Name = "plusFiveHundred";
+            this.plusFiveHundred.Size = new System.Drawing.Size(24, 20);
+            this.plusFiveHundred.TabIndex = 36;
+            this.plusFiveHundred.Text = "+";
+            this.plusFiveHundred.UseVisualStyleBackColor = true;
+            this.plusFiveHundred.Click += new System.EventHandler(this.plusFiveHundred_Click);
+            // 
+            // minusOneHundred
+            // 
+            this.minusOneHundred.Location = new System.Drawing.Point(895, 166);
+            this.minusOneHundred.Name = "minusOneHundred";
+            this.minusOneHundred.Size = new System.Drawing.Size(24, 20);
+            this.minusOneHundred.TabIndex = 39;
+            this.minusOneHundred.Text = "-";
+            this.minusOneHundred.UseVisualStyleBackColor = true;
+            this.minusOneHundred.Click += new System.EventHandler(this.minusOneHundred_Click);
+            // 
+            // plusOneHundred
+            // 
+            this.plusOneHundred.Location = new System.Drawing.Point(865, 166);
+            this.plusOneHundred.Name = "plusOneHundred";
+            this.plusOneHundred.Size = new System.Drawing.Size(24, 20);
+            this.plusOneHundred.TabIndex = 38;
+            this.plusOneHundred.Text = "+";
+            this.plusOneHundred.UseVisualStyleBackColor = true;
+            this.plusOneHundred.Click += new System.EventHandler(this.plusOneHundred_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 657);
+            this.ClientSize = new System.Drawing.Size(1034, 657);
+            this.Controls.Add(this.minusOneHundred);
+            this.Controls.Add(this.plusOneHundred);
+            this.Controls.Add(this.minusFiveHundred);
+            this.Controls.Add(this.plusFiveHundred);
+            this.Controls.Add(this.minusOneThousand);
+            this.Controls.Add(this.plusOneThousand);
+            this.Controls.Add(this.minusFiveThousand);
+            this.Controls.Add(this.plusFiveThousand);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ErrorZeroLabel);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SumErrorLabel);
@@ -320,6 +512,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -353,6 +546,23 @@
         private System.Windows.Forms.Label SumErrorLabel;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Label ErrorZeroLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button plusFiveThousand;
+        private System.Windows.Forms.Button minusFiveThousand;
+        private System.Windows.Forms.Button minusOneThousand;
+        private System.Windows.Forms.Button plusOneThousand;
+        private System.Windows.Forms.Button minusFiveHundred;
+        private System.Windows.Forms.Button plusFiveHundred;
+        private System.Windows.Forms.Button minusOneHundred;
+        private System.Windows.Forms.Button plusOneHundred;
     }
 }
 

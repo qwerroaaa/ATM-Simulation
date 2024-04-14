@@ -16,8 +16,16 @@ namespace ooap_lab3_withpattern_chain
         public Form1()
         {
             InitializeComponent();
+            textBox1.Text = availableNotes[5000].ToString();
+            textBox2.Text = availableNotes[1000].ToString();
+            textBox3.Text = availableNotes[500].ToString();
+            textBox4.Text = availableNotes[100].ToString();
         }
 
+        private Dictionary<int, int> availableNotes = new Dictionary<int, int>
+        {
+            {100, 1}, {500, 3}, {1000, 6}, {5000, 2}
+        };
 
         private void inputNumberBox_TextChanged(object sender, EventArgs e)
         {
@@ -41,6 +49,7 @@ namespace ooap_lab3_withpattern_chain
         public abstract class Handler
         {
             public Handler Successor;
+            protected Dictionary<int, int> AvailableNotes;
 
             public void SetSuccessor(Handler successor)
             {
@@ -56,6 +65,7 @@ namespace ooap_lab3_withpattern_chain
             public FiveThousandHandler(TextBox getBacknoteBox)
             {
                 this.getBacknoteBox = getBacknoteBox;
+                //AvailableNotes = availableNotes;
             }
             public override void HandleRequest(int amount)
             {
@@ -267,6 +277,10 @@ namespace ooap_lab3_withpattern_chain
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            textBox1.Text = availableNotes[5000].ToString();
+            textBox2.Text = availableNotes[1000].ToString();
+            textBox3.Text = availableNotes[500].ToString();
+            textBox4.Text = availableNotes[100].ToString();
             char firstchar = inputNumberBox.Text[0];
             if (firstchar != '0')
             {
@@ -278,6 +292,7 @@ namespace ooap_lab3_withpattern_chain
                 else
                 {
                     SumErrorLabel.Visible = false;
+                    getBacknoteBox.Clear();
                     int amount = int.Parse(inputNumberBox.Text);
 
                     //цепочка обработчиков
@@ -307,6 +322,78 @@ namespace ooap_lab3_withpattern_chain
             ErrorLabel.Visible = false;
             SumErrorLabel.Visible = false;
             ErrorZeroLabel.Visible = false;
+        }
+
+        private void plusFiveThousand_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(5000))
+            {
+                availableNotes[5000]++;
+                textBox1.Text = availableNotes[5000].ToString();
+            }
+        }
+
+        private void minusFiveThousand_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(5000) && int.Parse(textBox1.Text) != 0)
+            {
+                availableNotes[5000]--;
+                textBox1.Text = availableNotes[5000].ToString();
+            }
+        }
+
+        private void plusOneThousand_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(1000))
+            {
+                availableNotes[1000]++;
+                textBox2.Text = availableNotes[1000].ToString();
+            }
+        }
+
+        private void minusOneThousand_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(1000) && int.Parse(textBox2.Text) != 0)
+            {
+                availableNotes[1000]--;
+                textBox2.Text = availableNotes[1000].ToString();
+            }
+        }
+
+        private void plusFiveHundred_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(500))
+            {
+                availableNotes[500]++;
+                textBox3.Text = availableNotes[500].ToString();
+            }
+        }
+
+        private void minusFiveHundred_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(500) && int.Parse(textBox3.Text) != 0)
+            {
+                availableNotes[500]--;
+                textBox3.Text = availableNotes[500].ToString();
+            }
+        }
+
+        private void plusOneHundred_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(100))
+            {
+                availableNotes[100]++;
+                textBox4.Text = availableNotes[100].ToString();
+            }
+        }
+
+        private void minusOneHundred_Click(object sender, EventArgs e)
+        {
+            if (availableNotes.ContainsKey(100) && int.Parse(textBox4.Text) != 0)
+            {
+                availableNotes[100]--;
+                textBox4.Text = availableNotes[100].ToString();
+            }
         }
     }
 }
