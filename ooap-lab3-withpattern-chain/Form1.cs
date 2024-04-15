@@ -23,6 +23,17 @@ namespace ooap_lab3_withpattern_chain
             textBox4.Text = availableNotes[100].ToString();
             maxSumTextBox.Text = CountTheMaxSum().ToString();
         }
+        
+        int CountTheMinSum()
+        {
+            int MinSum = 0;
+            if (availableNotes.ContainsKey(500) && availableNotes[500] > 0)
+            {
+
+            }
+            return MinSum;
+        }
+
         int CountTheMaxSum()
         {
             int sum = 0;
@@ -327,8 +338,6 @@ namespace ooap_lab3_withpattern_chain
                     getBacknoteBox.Clear();
                     int amount = int.Parse(inputNumberBox.Text);
 
-                    
-
                     //цепочка обработчиков
                     Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox, availableNotes, textBox1);
                     Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
@@ -342,8 +351,8 @@ namespace ooap_lab3_withpattern_chain
 
                     // Начинаем обработку запроса с самого крупного номинала
                     fiveThousandHandler.HandleRequest(amount);
+                    maxSumTextBox.Text = CountTheMaxSum().ToString();
 
-                   
                 }
             } else
             {
