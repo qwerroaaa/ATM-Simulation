@@ -22,6 +22,7 @@ namespace ooap_lab3_withpattern_chain
             textBox3.Text = availableNotes[500].ToString();
             textBox4.Text = availableNotes[100].ToString();
             maxSumTextBox.Text = CountTheMaxSum().ToString();
+            minSumTextBox.Text = CountTheMinSum().ToString();
         }
         
         int CountTheMinSum()
@@ -29,8 +30,28 @@ namespace ooap_lab3_withpattern_chain
             int MinSum = 0;
             if (availableNotes.ContainsKey(500) && availableNotes[500] > 0)
             {
-
+                MinSum = 500;
             }
+            else 
+            {
+                if (availableNotes.ContainsKey(100) && availableNotes[100] > 0)
+                {
+                    MinSum = availableNotes[100] * 100;
+                } else
+                {
+                    if (availableNotes.ContainsKey(1000) && availableNotes[1000] > 0) 
+                    {
+                        MinSum = 1000;
+                    } else
+                    {
+                        if (availableNotes.ContainsKey(5000) && availableNotes[5000] > 0)
+                        {
+                            MinSum = 5000;
+                        }
+                    }
+                }
+            }
+              
             return MinSum;
         }
 
@@ -318,6 +339,7 @@ namespace ooap_lab3_withpattern_chain
                     ErrorLabel.Visible = false;
                     SumErrorLabel.Visible = false;
                     ErrorZeroLabel.Visible = false;
+                    GapNumber.Visible = false;
                 }
             }
         }
@@ -334,24 +356,33 @@ namespace ooap_lab3_withpattern_chain
                 }
                 else
                 {
-                    SumErrorLabel.Visible = false;
-                    getBacknoteBox.Clear();
-                    int amount = int.Parse(inputNumberBox.Text);
+                    if (int.Parse(inputNumberBox.Text) < int.Parse(minSumTextBox.Text) || int.Parse(inputNumberBox.Text) > int.Parse(maxSumTextBox.Text))
+                    {
+                        GapNumber.Visible = true;
+                    }
+                    else
+                    {
+                        SumErrorLabel.Visible = false;
+                        getBacknoteBox.Clear();
+                        int amount = int.Parse(inputNumberBox.Text);
 
-                    //цепочка обработчиков
-                    Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox, availableNotes, textBox1);
-                    Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
-                    Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox, availableNotes, textBox3);
-                    Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox, availableNotes, textBox4);
+                        //цепочка обработчиков
+                        Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox, availableNotes, textBox1);
+                        Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
+                        Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox, availableNotes, textBox3);
+                        Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox, availableNotes, textBox4);
 
-                    // Устанавливаем следующего обработчика для каждого обработчика
-                    fiveThousandHandler.SetSuccessor(oneThousandHandler);
-                    oneThousandHandler.SetSuccessor(fiveHundredHandler);
-                    fiveHundredHandler.SetSuccessor(oneHundredHandler);
+                        // Устанавливаем следующего обработчика для каждого обработчика
+                        fiveThousandHandler.SetSuccessor(oneThousandHandler);
+                        oneThousandHandler.SetSuccessor(fiveHundredHandler);
+                        fiveHundredHandler.SetSuccessor(oneHundredHandler);
 
-                    // Начинаем обработку запроса с самого крупного номинала
-                    fiveThousandHandler.HandleRequest(amount);
-                    maxSumTextBox.Text = CountTheMaxSum().ToString();
+                        // Начинаем обработку запроса с самого крупного номинала
+                        fiveThousandHandler.HandleRequest(amount);
+                        maxSumTextBox.Text = CountTheMaxSum().ToString();
+                        minSumTextBox.Text = CountTheMinSum().ToString();
+                    }
+                    
 
                 }
             } else
@@ -376,6 +407,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[5000]++;
                 textBox1.Text = availableNotes[5000].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -386,6 +418,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[5000]--;
                 textBox1.Text = availableNotes[5000].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -396,6 +429,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[1000]++;
                 textBox2.Text = availableNotes[1000].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -406,6 +440,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[1000]--;
                 textBox2.Text = availableNotes[1000].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -416,6 +451,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[500]++;
                 textBox3.Text = availableNotes[500].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -426,6 +462,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[500]--;
                 textBox3.Text = availableNotes[500].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -436,6 +473,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[100]++;
                 textBox4.Text = availableNotes[100].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
 
@@ -446,6 +484,7 @@ namespace ooap_lab3_withpattern_chain
                 availableNotes[100]--;
                 textBox4.Text = availableNotes[100].ToString();
                 maxSumTextBox.Text = CountTheMaxSum().ToString();
+                minSumTextBox.Text = CountTheMinSum().ToString();
             }
         }
     }
