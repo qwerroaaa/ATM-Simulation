@@ -87,6 +87,7 @@ namespace ooap_lab3_withpattern_chain
                     int count = amount / 5000;
                     int availableCount = Math.Min(count, AvailableNotes[5000]);
                     int remainder = amount - availableCount * 5000;
+                    AvailableNotes[5000] = AvailableNotes[5000] - availableCount;
                     textBox1.Text = AvailableNotes[5000].ToString();
                     if (availableCount == 1 || availableCount == 101)
                     {
@@ -129,6 +130,7 @@ namespace ooap_lab3_withpattern_chain
                     int count = amount / 1000;
                     int availableCount = Math.Min(count, AvailableNotes[1000]);
                     int remainder = amount - availableCount * 1000;
+                    AvailableNotes[1000] = AvailableNotes[1000] - availableCount;
                     textBox2.Text = AvailableNotes[1000].ToString();
                     if (availableCount == 1 || availableCount == 101)
                     {
@@ -173,6 +175,7 @@ namespace ooap_lab3_withpattern_chain
                     int count = amount / 500;
                     int availableCount = Math.Min(count, AvailableNotes[500]);
                     int remainder = amount - availableCount * 500;
+                    AvailableNotes[500] = AvailableNotes[500] - availableCount;
                     textBox3.Text = AvailableNotes[500].ToString();
                     if (availableCount == 1 || availableCount == 101)
                     {
