@@ -73,26 +73,30 @@ namespace ooap_lab3_withpattern_chain
         public class FiveThousandHandler : Handler
         {
             private TextBox getBacknoteBox;
-            public FiveThousandHandler(TextBox getBacknoteBox)
+            private TextBox textBox1;
+            public FiveThousandHandler(TextBox getBacknoteBox, Dictionary<int, int> availableNotes, TextBox textBox1)
             {
                 this.getBacknoteBox = getBacknoteBox;
-                //AvailableNotes = availableNotes;
+                AvailableNotes = availableNotes;
+                this.textBox1 = textBox1;
             }
             public override void HandleRequest(int amount)
             {
-                if (amount >= 5000)
+                if (amount >= 5000 && AvailableNotes.ContainsKey(5000) && AvailableNotes[5000] > 0)
                 {
                     int count = amount / 5000;
-                    int remainder = amount % 5000;
-                    if (count == 1 || count == 101)
+                    int availableCount = Math.Min(count, AvailableNotes[5000]);
+                    int remainder = amount - availableCount * 5000;
+                    textBox1.Text = AvailableNotes[5000].ToString();
+                    if (availableCount == 1 || availableCount == 101)
                     {
-                        getBacknoteBox.Text += $"{count} купюра по 5000{Environment.NewLine}";
-                    } else if((count > 1 && count <= 4) || (count >= 102 && count <= 104))
+                        getBacknoteBox.Text += $"{availableCount} купюра по 5000{Environment.NewLine}";
+                    } else if((availableCount > 1 && availableCount <= 4) || (availableCount >= 102 && availableCount <= 104))
                     {
-                        getBacknoteBox.Text += $"{count} купюры по 5000{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюры по 5000{Environment.NewLine}";
                     } else
                     {
-                        getBacknoteBox.Text += $"{count} купюр по 5000{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюр по 5000{Environment.NewLine}";
                     }
                     
                     if (remainder > 0 && Successor != null)
@@ -110,34 +114,41 @@ namespace ooap_lab3_withpattern_chain
         public class OneThousandHandler : Handler
         {
             private TextBox getBacknoteBox;
-            public OneThousandHandler(TextBox getBacknoteBox)
+            private TextBox textBox2;
+            public OneThousandHandler(TextBox getBacknoteBox, Dictionary<int, int> availableNotes, TextBox textBox2)
             {
                 this.getBacknoteBox = getBacknoteBox;
+                AvailableNotes = availableNotes;
+                this.textBox2 = textBox2;
             }
 
             public override void HandleRequest(int amount)
             {
-                if (amount >= 1000)
+                if (amount >= 1000 && AvailableNotes.ContainsKey(1000) && AvailableNotes[1000] > 0)
                 {
                     int count = amount / 1000;
-                    int remainder = amount % 1000;
-                    if (count == 1 || count == 101)
+                    int availableCount = Math.Min(count, AvailableNotes[1000]);
+                    int remainder = amount - availableCount * 1000;
+                    textBox2.Text = AvailableNotes[1000].ToString();
+                    if (availableCount == 1 || availableCount == 101)
                     {
-                        getBacknoteBox.Text += $"{count} купюра по 1000{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюра по 1000{Environment.NewLine}";
                     }
-                    else if ((count > 1 && count <= 4) || (count >= 102 && count <= 104))
+                    else if ((availableCount > 1 && availableCount <= 4) || (availableCount >= 102 && availableCount <= 104))
                     {
-                        getBacknoteBox.Text += $"{count} купюры по 1000{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюры по 1000{Environment.NewLine}";
                     }
                     else
                     {
-                        getBacknoteBox.Text += $"{count} купюр по 1000{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюр по 1000{Environment.NewLine}";
                     }
+
                     if (remainder > 0 && Successor != null)
                     {
                         Successor.HandleRequest(remainder);
                     }
-                } else if (Successor != null)
+                }
+                else if (Successor != null)
                 {
                     Successor.HandleRequest(amount);
                 }
@@ -147,29 +158,35 @@ namespace ooap_lab3_withpattern_chain
         public class FiveHundredHandler : Handler
         {
             private TextBox getBacknoteBox;
-            public FiveHundredHandler(TextBox getBacknoteBox)
+            private TextBox textBox3;
+            public FiveHundredHandler(TextBox getBacknoteBox, Dictionary<int, int> availableNotes, TextBox textBox3)
             {
                 this.getBacknoteBox = getBacknoteBox;
+                AvailableNotes = availableNotes;
+                this.textBox3 = textBox3;
             }
 
             public override void HandleRequest(int amount)
             {
-                if (amount >= 500)
+                if (amount >= 500 && AvailableNotes.ContainsKey(500) && AvailableNotes[500] > 0)
                 {
                     int count = amount / 500;
-                    int remainder = amount % 500;
-                    if (count == 1 || count == 101)
+                    int availableCount = Math.Min(count, AvailableNotes[500]);
+                    int remainder = amount - availableCount * 500;
+                    textBox3.Text = AvailableNotes[500].ToString();
+                    if (availableCount == 1 || availableCount == 101)
                     {
-                        getBacknoteBox.Text += $"{count} купюра по 500{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюра по 500{Environment.NewLine}";
                     }
-                    else if ((count > 1 && count <= 4) || (count >= 102 && count <= 104))
+                    else if ((availableCount > 1 && availableCount <= 4) || (availableCount >= 102 && availableCount <= 104))
                     {
-                        getBacknoteBox.Text += $"{count} купюры по 500{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюры по 500{Environment.NewLine}";
                     }
                     else
                     {
-                        getBacknoteBox.Text += $"{count} купюр по 500{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюр по 500{Environment.NewLine}";
                     }
+
                     if (remainder > 0 && Successor != null)
                     {
                         Successor.HandleRequest(remainder);
@@ -185,35 +202,40 @@ namespace ooap_lab3_withpattern_chain
         public class OneHundredHandler : Handler
         {
             private TextBox getBacknoteBox;
-            public OneHundredHandler(TextBox getBacknoteBox)
+            private TextBox textBox4;
+            public OneHundredHandler(TextBox getBacknoteBox, Dictionary<int, int> availableNotes, TextBox textBox4)
             {
                 this.getBacknoteBox = getBacknoteBox;
+                AvailableNotes = availableNotes;
+                this.textBox4 = textBox4;
             }
 
             public override void HandleRequest(int amount)
             {
-                if (amount >= 100)
+                if (amount >= 100 && AvailableNotes.ContainsKey(100) && AvailableNotes[100] > 0)
                 {
                     int count = amount / 100;
-                    int remainder = amount % 100;
-
-                    if (count == 1 || count == 101)
+                    int availableCount = Math.Min(count, AvailableNotes[100]);
+                    int remainder = amount - availableCount * 100;
+                    AvailableNotes[100] = AvailableNotes[100] - availableCount;
+                    textBox4.Text = AvailableNotes[100].ToString();
+                    if (availableCount == 1 || availableCount == 101)
                     {
-                        getBacknoteBox.Text += $"{count} купюра по 100{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюра по 100{Environment.NewLine}";
                     }
-                    else if ((count > 1 && count <= 4) || (count >= 102 && count <= 104))
+                    else if ((availableCount > 1 && availableCount <= 4) || (availableCount >= 102 && availableCount <= 104))
                     {
-                        getBacknoteBox.Text += $"{count} купюры по 100{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюры по 100{Environment.NewLine}";
                     }
                     else
                     {
-                        getBacknoteBox.Text += $"{count} купюр по 100{Environment.NewLine}";
+                        getBacknoteBox.Text += $"{availableCount} купюр по 100{Environment.NewLine}";
                     }
+
                     if (remainder > 0 && Successor != null)
                     {
                         Successor.HandleRequest(remainder);
                     }
-
                 }
                 else if (Successor != null)
                 {
@@ -288,10 +310,6 @@ namespace ooap_lab3_withpattern_chain
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            textBox1.Text = availableNotes[5000].ToString();
-            textBox2.Text = availableNotes[1000].ToString();
-            textBox3.Text = availableNotes[500].ToString();
-            textBox4.Text = availableNotes[100].ToString();
             char firstchar = inputNumberBox.Text[0];
             if (firstchar != '0')
             {
@@ -306,11 +324,13 @@ namespace ooap_lab3_withpattern_chain
                     getBacknoteBox.Clear();
                     int amount = int.Parse(inputNumberBox.Text);
 
+                    
+
                     //цепочка обработчиков
-                    Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox);
-                    Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox);
-                    Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox);
-                    Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox);
+                    Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox, availableNotes, textBox1);
+                    Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
+                    Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox, availableNotes, textBox3);
+                    Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox, availableNotes, textBox4);
 
                     // Устанавливаем следующего обработчика для каждого обработчика
                     fiveThousandHandler.SetSuccessor(oneThousandHandler);
@@ -319,6 +339,8 @@ namespace ooap_lab3_withpattern_chain
 
                     // Начинаем обработку запроса с самого крупного номинала
                     fiveThousandHandler.HandleRequest(amount);
+
+                   
                 }
             } else
             {
