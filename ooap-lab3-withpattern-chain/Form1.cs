@@ -281,51 +281,61 @@ namespace ooap_lab3_withpattern_chain
 
         private void oneNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 1;
         }
 
         private void twoNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 2;
         }
 
         private void threeNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 3;
         }
 
         private void fourNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 4;
         }
 
         private void fiveNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 5;
         }
 
         private void SixNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 6;
         }
 
         private void SevenNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 7;
         }
 
         private void EightNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 8;
         }
 
         private void NineNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 9;
         }
 
         private void ZeroNumberButton_Click(object sender, EventArgs e)
         {
+            NullLabel.Visible = false;
             inputNumberBox.Text += 0;
         }
 
@@ -340,53 +350,61 @@ namespace ooap_lab3_withpattern_chain
                     SumErrorLabel.Visible = false;
                     ErrorZeroLabel.Visible = false;
                     GapNumber.Visible = false;
+                    NullLabel.Visible = false;
                 }
             }
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            char firstchar = inputNumberBox.Text[0];
-            if (firstchar != '0')
+            if (!string.IsNullOrEmpty(inputNumberBox.Text)) 
             {
-                ErrorZeroLabel.Visible = false;
-                if ((int.Parse(inputNumberBox.Text) % 100) != 0)
+                char firstchar = inputNumberBox.Text[0];
+                if (firstchar != '0')
                 {
-                    SumErrorLabel.Visible = true;
-                }
-                else
-                {
-                    if (int.Parse(inputNumberBox.Text) < int.Parse(minSumTextBox.Text) || int.Parse(inputNumberBox.Text) > int.Parse(maxSumTextBox.Text))
+                    ErrorZeroLabel.Visible = false;
+                    if ((int.Parse(inputNumberBox.Text) % 100) != 0)
                     {
-                        GapNumber.Visible = true;
+                        SumErrorLabel.Visible = true;
                     }
                     else
                     {
-                        SumErrorLabel.Visible = false;
-                        getBacknoteBox.Clear();
-                        int amount = int.Parse(inputNumberBox.Text);
+                        if (int.Parse(inputNumberBox.Text) < int.Parse(minSumTextBox.Text) || int.Parse(inputNumberBox.Text) > int.Parse(maxSumTextBox.Text))
+                        {
+                            GapNumber.Visible = true;
+                        }
+                        else
+                        {
+                            SumErrorLabel.Visible = false;
+                            getBacknoteBox.Clear();
+                            int amount = int.Parse(inputNumberBox.Text);
 
                         //цепочка обработчиков
                         Handler fiveThousandHandler = new FiveThousandHandler(getBacknoteBox, availableNotes, textBox1);
                         Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
                         Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox, availableNotes, textBox3);
                         Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox, availableNotes, textBox4);
+
                         // Устанавливаем следующего обработчика для каждого обработчика
                         fiveThousandHandler.SetSuccessor(oneThousandHandler);
                         oneThousandHandler.SetSuccessor(fiveHundredHandler);
                         fiveHundredHandler.SetSuccessor(oneHundredHandler);
 
-                        // Начинаем обработку запроса с самого крупного номинала
-                        fiveThousandHandler.HandleRequest(amount);
-                        maxSumTextBox.Text = CountTheMaxSum().ToString();
-                        minSumTextBox.Text = CountTheMinSum().ToString();
-                    }
-                    
+                            // Начинаем обработку запроса с самого крупного номинала
+                            fiveThousandHandler.HandleRequest(amount);
+                            maxSumTextBox.Text = CountTheMaxSum().ToString();
+                            minSumTextBox.Text = CountTheMinSum().ToString();
+                        }
 
+
+                    }
+                } else
+                {
+                    ErrorZeroLabel.Visible = true;
                 }
             } else
             {
-                ErrorZeroLabel.Visible = true;
+                NullLabel.Visible = true;
             }
         }
 

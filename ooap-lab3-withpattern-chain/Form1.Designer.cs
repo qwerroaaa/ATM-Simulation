@@ -73,6 +73,7 @@
             this.minSumTextBox = new System.Windows.Forms.TextBox();
             this.maxSumTextBox = new System.Windows.Forms.TextBox();
             this.GapNumber = new System.Windows.Forms.Label();
+            this.NullLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -525,11 +526,24 @@
             this.GapNumber.Text = "Ваше сумма не попадает в установленные границы";
             this.GapNumber.Visible = false;
             // 
+            // NullLabel
+            // 
+            this.NullLabel.AutoSize = true;
+            this.NullLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.NullLabel.ForeColor = System.Drawing.Color.Red;
+            this.NullLabel.Location = new System.Drawing.Point(289, 323);
+            this.NullLabel.Name = "NullLabel";
+            this.NullLabel.Size = new System.Drawing.Size(256, 20);
+            this.NullLabel.TabIndex = 45;
+            this.NullLabel.Text = "Сумма не может быть пустой";
+            this.NullLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 657);
+            this.Controls.Add(this.NullLabel);
             this.Controls.Add(this.GapNumber);
             this.Controls.Add(this.maxSumTextBox);
             this.Controls.Add(this.minSumTextBox);
@@ -632,6 +646,7 @@
         private System.Windows.Forms.TextBox minSumTextBox;
         private System.Windows.Forms.TextBox maxSumTextBox;
         private System.Windows.Forms.Label GapNumber;
+        private System.Windows.Forms.Label NullLabel;
     }
 }
 
