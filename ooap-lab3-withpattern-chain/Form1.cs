@@ -371,7 +371,6 @@ namespace ooap_lab3_withpattern_chain
                         Handler oneThousandHandler = new OneThousandHandler(getBacknoteBox, availableNotes, textBox2);
                         Handler fiveHundredHandler = new FiveHundredHandler(getBacknoteBox, availableNotes, textBox3);
                         Handler oneHundredHandler = new OneHundredHandler(getBacknoteBox, availableNotes, textBox4);
-
                         // Устанавливаем следующего обработчика для каждого обработчика
                         fiveThousandHandler.SetSuccessor(oneThousandHandler);
                         oneThousandHandler.SetSuccessor(fiveHundredHandler);
